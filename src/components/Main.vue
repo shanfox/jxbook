@@ -96,6 +96,7 @@ export default {
             })
             .then((res) => {
                 this.lists = res.data;
+                console.log('书籍列表：'+this.lists);
                 tmp = this.lists;
             })
             .catch((error)=> {

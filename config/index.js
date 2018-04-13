@@ -12,6 +12,7 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
 
+            /*
             '/api': {
                 //target: 'http://10.226.37.41:7777', //设置调用接口域名和端口号别忘了加http
                 target: 'http://10.226.37.105:8778', //设置调用接口域名和端口号别忘了加http
@@ -21,7 +22,7 @@ module.exports = {
                         // 比如我要调用'http://0.0:300/user/add'，直接写‘/api/user/add’即可 代理后地址栏显示/
                 }
             }
-
+            */
 
         },
 
