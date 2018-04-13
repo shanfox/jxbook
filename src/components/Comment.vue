@@ -1,7 +1,7 @@
 <template>
     <div class="comment">
         <ul>
-            <li v-for="(data,index) in newLists" :key="data.ID">
+            <li v-for="(data,index) in comments" :key="data.ID">
                 <p>{{index+1}}楼 <span>{{data.commentTime}}</span></p>
                 <p>{{data.commentDesc}}</p>
             </li>
@@ -11,24 +11,25 @@
 
 <script>
 export default {
-  name: 'comment',
-  props: ['vComment','vDate','comments'],
-  data () {
-    return {
-        
+    name: 'comment',
+    props: ['vComment','vDate','comments'],
+    computed: {
+        // newLists(){
+        //     if(this.vComment){
+        //         var tmp = {'commentDes':this.vComment,'commentTime':this.vDate}
+        //         if(this.comments.length>0){
+        //             this.comments.unshift(tmp);
+        //         }else{
+        //             this.comments.push(tmp);
+        //         }
+        //     }
+        //     return this.comments;
+        // }  
+    },
+    mounted() {
+        console.log(this.comments.length);
+        console.log(this.comments);
     }
-  },
-  computed: {
-      newLists: function(){
-          if(this.vComment){
-            this.comments.unshift({commentDesc:this.vComment,commentTime:this.vDate});
-            return this.comments;
-          }else{
-              return this.comments;
-          }
-      }
-      
-  }
 }
 </script>
 

@@ -1,5 +1,16 @@
 <template>
   <div id="home">
+    <div id="appDiv1" class="appDiv">
+        <div class="tc_box">
+            <span class="close" @click="close">X</span>
+            <h3>借阅</h3>
+            <input type="text" name="" id="text" placeholder="请输入借书人名字">
+            <input type="hidden" name="" id="index">
+            <input type="hidden" name="" id="id">
+            
+            <button @click="add">提交</button>
+        </div>
+    </div>
     <div id="appDiv2" class="appDiv">
         <div class="tc_box">
             <span class="close" @click="close2">X</span>
@@ -10,8 +21,8 @@
     </div>
     <app-header />
     <Banner />
-    <router-view :inputValue="vName" :inputDate="vJDate" :power="power" @upup="change" :comments="comments" :vComment="vComment" :vDate="vDate"></router-view>
-    <!-- <app-main :inputValue="vName" :inputDate="vJDate" @upup="change"></app-main> -->
+    <!-- <router-view :inputValue="vName" :inputDate="vJDate" :power="power" @upup="change" :comments="comments" :vComment="vComment" :vDate="vDate"></router-view> -->
+    <app-main :inputValue="vName" :inputDate="vJDate" :power="power" @upup="change" :comments="comments" :vComment="vComment" :vDate="vDate"></app-main>
   </div>
 </template>
 
@@ -57,7 +68,6 @@ export default {
             this.vList[$('#index').val()].bookState = '借出';
             $('#appDiv1').hide();
             $('#text').val('');
-            console.log(this.vName);
             alert('借阅成功');
           }else if(res.data == 100){
             alert('借阅人不能为空');
@@ -104,28 +114,6 @@ export default {
     }
   },
   mounted: function(){
-      /*
-        Date.prototype.format = function(fmt) { 
-            var o = { 
-                "M+" : this.getMonth()+1,                 //月份 
-                "d+" : this.getDate(),                    //日 
-                "h+" : this.getHours(),                   //小时 
-                "m+" : this.getMinutes(),                 //分 
-                "s+" : this.getSeconds(),                 //秒 
-                "q+" : Math.floor((this.getMonth()+3)/3), //季度 
-                "S"  : this.getMilliseconds()             //毫秒 
-            }; 
-            if(/(y+)/.test(fmt)) {
-                    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
-            }
-            for(var k in o) {
-                if(new RegExp("("+ k +")").test(fmt)){
-                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
-                }
-            }
-            return fmt; 
-        }
-        */
       
         axios.get('/api/server.ashx',{
             params: {
@@ -134,11 +122,9 @@ export default {
         })
         .then((res)=>{
             this.power = res.data;
-            if(this.power==0){
-                this.$router.push({path:'/home'});  //前端页面
-            }else{
-                this.$router.push({path:'/admin'});
-            }
+            // if(this.power==1){
+            //     this.$router.push({path:'/admin'});  //前端页面
+            // }
         });
       
       

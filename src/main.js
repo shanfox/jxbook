@@ -40,66 +40,66 @@ Date.prototype.format = function(fmt) {
 
 //配置路由
 const router = new VueRouter({
-    /*routes: [
-        { path: "/", name: "Home", component: Home },
+    routes: [
+        { path: "", name: "Home", component: Home },
         { path: "/show/:id", name: "Show", component: Show },
         { path: "/add", name: "Add", component: Add },
 
-    ],*/
-    routes: [
-        { path: '/', redirect: '/home' },
-        {
-            path: '/home',
-            name: 'home',
-            title: '首页',
-            component: Home,
-            children: [{
-                path: '',
-                name: 'main1',
-                title: '书籍首页',
-                component: Main
-            }, {
-                path: 'show/:id',
-                name: 'show1',
-                title: '书籍详细页面',
-                component: Show,
-                children: [{
-                    path: '',
-                    name: 'comment1',
-                    title: '书籍评论页面',
-                    component: Comment,
-                }]
-            }]
-        },
-        {
-            path: '/admin',
-            name: 'admin',
-            title: '后台',
-            component: Admin,
-            children: [{
-                path: '',
-                name: 'main2',
-                title: '书籍首页',
-                component: Main
-            }, {
-                path: 'add',
-                name: 'add',
-                title: '添加数据',
-                component: Add
-            }, {
-                path: 'show/:id',
-                name: 'show2',
-                title: '书籍详细页面',
-                component: Show,
-                children: [{
-                    path: '',
-                    name: 'comment2',
-                    title: '书籍评论页面',
-                    component: Comment,
-                }]
-            }]
-        }
     ],
+    // routes: [
+    //     { path: '/', redirect: '/home' },
+    //     {
+    //         path: '/home',
+    //         name: 'home',
+    //         title: '首页',
+    //         component: Home,
+    //         children: [{
+    //             path: '',
+    //             name: 'main1',
+    //             title: '书籍首页',
+    //             component: Main
+    //         }, {
+    //             path: 'show/:id',
+    //             name: 'show1',
+    //             title: '书籍详细页面',
+    //             component: Show,
+    //             children: [{
+    //                 path: '',
+    //                 name: 'comment1',
+    //                 title: '书籍评论页面',
+    //                 component: Comment,
+    //             }]
+    //         }]
+    //     },
+    //     {
+    //         path: '/admin',
+    //         name: 'admin',
+    //         title: '后台',
+    //         component: Admin,
+    //         children: [{
+    //             path: '',
+    //             name: 'main2',
+    //             title: '书籍首页',
+    //             component: Main
+    //         }, {
+    //             path: 'add',
+    //             name: 'add',
+    //             title: '添加数据',
+    //             component: Add
+    //         }, {
+    //             path: 'show/:id',
+    //             name: 'show2',
+    //             title: '书籍详细页面',
+    //             component: Show,
+    //             children: [{
+    //                 path: '',
+    //                 name: 'comment2',
+    //                 title: '书籍评论页面',
+    //                 component: Comment,
+    //             }]
+    //         }]
+    //     }
+    // ],
     mode: "history"
 })
 

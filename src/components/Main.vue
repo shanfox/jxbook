@@ -30,7 +30,7 @@
         </div><!--#end search_box-->
 
         <div v-show="power" class="adminnav">
-            <router-link class="link" to="/admin/add">添加书籍</router-link>
+            <router-link class="link" to="/add">添加书籍</router-link>
         </div>
 
         <div class="table-box">
@@ -49,8 +49,9 @@
                     <td>{{list.bookClass}}</td>
                     <td class="name">
                         <!-- <span @click="goShow(list.ID)">{{list.bookName}}</span> -->
-                        <span v-if="power"><router-link class="link" :to="{ path: '/admin/show/'+list.ID }">{{list.bookName}}</router-link></span>
-                        <span v-else><router-link class="link" :to="{ path: '/home/show/'+list.ID }">{{list.bookName}}</router-link></span>
+                        <router-link class="link" :to="{ path: '/show/'+list.ID }">{{list.bookName}}</router-link>
+                        <!-- <span v-if="power"><router-link class="link" :to="{ path: '/admin/show/'+list.ID }">{{list.bookName}}</router-link></span>
+                        <span v-else><router-link class="link" :to="{ path: '/home/show/'+list.ID }">{{list.bookName}}</router-link></span> -->
                         <div class="dialog">
                             简介：{{list.bookDesc}}
                         </div>
@@ -83,15 +84,29 @@ export default {
             lists2: [],
             newLists1: [],
             newLists2: [],
-            lists3: [],
+            lists3: []
         }
     },
     methods: {
+        jiazai(){
+            axios.get('/api/server.ashx', {
+                params: {
+                    a: 2
+                }
+            })
+            .then((res) => {
+                this.lists = res.data;
+                tmp = this.lists;
+            })
+            .catch((error)=> {
+                console.log(error);
+            });
+        },
         choose(){
             console.log(this.selected);
         },
         goShow(id){
-            this.$router.push({ name: 'Show', params: { id: id }});
+            this.$router.push({ path: 'show/'+id });
         },
         goAdd(id){
             this.$router.push({ name: 'Add', params: { id: id }});
@@ -148,7 +163,6 @@ export default {
             this.lists = this.lists3;
         },
         dialog(id,index){
-            console.log('借阅弹窗');
             $('#appDiv1').show();
             $('#index').val(index);
             $('#id').val(id);
@@ -171,20 +185,9 @@ export default {
             
         }
     },
-    created (){
-        axios.get('/api/server.ashx', {
-            params: {
-                a: 2
-            }
-        })
-        .then((res) => {
-            this.lists = res.data;
-            console.log(res.data);
-            tmp = this.lists;
-        })
-        .catch((error)=> {
-            console.log(error);
-        });
+    mounted: function(){
+        this.jiazai();
+        //setInterval(this.jiazai,1000)
     }
 }
 </script>

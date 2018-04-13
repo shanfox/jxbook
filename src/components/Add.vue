@@ -1,7 +1,9 @@
 <template>
     <div class="add">
+        <app-header />
+        <Banner />
         <div class="show">
-            <div class="show_home"><router-link to="/admin">返回首页</router-link></div>
+            <div class="show_home"><router-link to="/">返回首页</router-link></div>
             <div class="show_nei">
                 <table>
                     <tr>
@@ -101,8 +103,8 @@ export default {
             var that=this;
             var file = e.target.files[0];
             var imgSize=file.size/1024;
-            if(imgSize>200){
-                alert('请上传大小不要超过200KB的图片')
+            if(imgSize>10240){
+                alert('请上传大小不要超过10240KB的图片')
             }else{
                 var reader = new FileReader();
                 reader.readAsDataURL(file); // 读出 base64
