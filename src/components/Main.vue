@@ -188,6 +188,16 @@ export default {
     },
     mounted: function(){
         this.jiazai();
+        $(function () {
+            //鼠标移入该行和鼠标移除该行的事件
+            
+            $("table").delegate("tr","mouseover",function(e){
+                $(this).addClass("trover");
+            });   
+            $("table").delegate("tr","mouseout",function(e){  
+                $(this).removeClass("trover");
+            });
+        });
         //setInterval(this.jiazai,1000)
     }
 }
@@ -195,6 +205,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.trover { background: #DEE8D1;}
+.tab tr:nth-child(1) {background: #DEE8D1;}
 .adminnav { margin: 0 auto 15px;}
 button { padding: 4px 15px;}
 .main { width: 1100px; margin: 0 auto;}
