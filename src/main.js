@@ -6,7 +6,6 @@ import VueResource from 'vue-resource'
 import App from './App'
 import Home from './components/Home'
 import Main from './components/Main'
-import Admin from './components/Admin'
 import Show from './components/Show'
 import Add from './components/Add'
 import Comment from './components/Comment'
@@ -40,12 +39,15 @@ Date.prototype.format = function(fmt) {
 
 //配置路由
 const router = new VueRouter({
+    //history: false,
+    //hashbang: true,
     routes: [
         { path: "", name: "Home", component: Home },
         { path: "/show/:id", name: "Show", component: Show },
         { path: "/add", name: "Add", component: Add },
 
     ],
+    //mode: "history",
     // routes: [
     //     { path: '/', redirect: '/home' },
     //     {
@@ -100,7 +102,7 @@ const router = new VueRouter({
     //         }]
     //     }
     // ],
-    mode: "history"
+    //
 })
 
 /* eslint-disable no-new */

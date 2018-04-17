@@ -89,14 +89,14 @@ export default {
     },
     methods: {
         jiazai(){
-            axios.get('/api/server.ashx', {
+            axios.get('server.ashx', {
                 params: {
                     a: 2
                 }
             })
             .then((res) => {
                 this.lists = res.data;
-                console.log('书籍列表：'+this.lists);
+                //console.log('书籍列表：'+this.lists);
                 tmp = this.lists;
             })
             .catch((error)=> {
@@ -170,7 +170,7 @@ export default {
             this.$emit('upup',this.lists); //主动触发upup方法，'hehe'为向父组件传递的数据
         },
         reback(num,index){
-            axios.get('/api/server.ashx', {
+            axios.get('server.ashx', {
                 params: {
                     a: 4,
                     id: num

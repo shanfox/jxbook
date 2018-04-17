@@ -52,7 +52,7 @@
                     <tr>
                         <td>图片：</td>
                         <td>
-                            <input @change="fileImage" type="file" accept="image/jpeg,image/x-png,image/gif" id="" value="">
+                            <input @change="fileImage" type="file" accept="image/jpeg,image/x-png,image/gif" id="bookImg" value="">
                         </td>
                     </tr>
                     <tr>
@@ -115,23 +115,37 @@ export default {
             }
         },
         tijiao(){
+            //console.log(this.bookImg);
+            var that = this;
             var params = new URLSearchParams();
             params.append('a', 1);
-            params.append('bookName', this.bookName);
-            params.append('bookNo', this.bookNo);
-            params.append('bookClass', this.bookClass);
-            params.append('bookAddTime', this.bookAddTime);
-            params.append('bookAuthor', this.bookAuthor);
-            params.append('bookDesc', this.bookDesc);
-            params.append('bookPrice', this.bookPrice);
-            params.append('bookImg', this.bookImg);
+            params.append('bookName', that.bookName);
+            params.append('bookNo', that.bookNo);
+            params.append('bookClass', that.bookClass);
+            params.append('bookAddTime', that.bookAddTime);
+            params.append('bookAuthor', that.bookAuthor);
+            params.append('bookDesc', that.bookDesc);
+            params.append('bookPrice', that.bookPrice);
+            params.append('bookImg', that.bookImg);
             axios({
                 method: 'post',
-                url: '/api/server.ashx',
+                url: 'server.ashx',
                 data: params
             })
             .then(function (res) {
                 console.log(res);
+                if(res.data==0){
+                    alert('添加成功');
+                    that.bookName = that.bookNo = that.bookAddTime = that.bookAuthor = that.bookDesc = that.bookPrice = '';
+                    $('#bookImg').val('');
+                    that.bookClass = 0;
+                }else if(res.data==103){
+                    alert('此书已添加');
+                }else if(res.data==102){
+                    alert('图片上传失败');
+                }else if(res.data==200){
+                    alert('添加失败，请联系管理员');
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -139,7 +153,7 @@ export default {
         }
     },
     mounted(){
-        axios.get('/api/server.ashx',{
+        axios.get('server.ashx',{
             params: {
                 a: 10
             }

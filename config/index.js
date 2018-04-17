@@ -14,8 +14,8 @@ module.exports = {
 
             /*
             '/api': {
-                //target: 'http://10.226.37.41:7777', //设置调用接口域名和端口号别忘了加http
-                target: 'http://10.226.37.105:8778', //设置调用接口域名和端口号别忘了加http
+                //target: 'http://10.226.32.23:8088', //设置调用接口域名和端口号别忘了加http
+                //target: 'http://10.226.37.105:8778', //设置调用接口域名和端口号别忘了加http
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': '/' //这里理解成用‘/api’代替target里面的地址，组件中我们调接口时直接用/api代替
@@ -23,6 +23,7 @@ module.exports = {
                 }
             }
             */
+
 
         },
 

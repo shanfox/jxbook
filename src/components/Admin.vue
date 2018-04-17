@@ -56,7 +56,7 @@ export default {
         this.vJDate =  new Date().format("yyyy-MM-dd hh:mm:ss");
         this.vName = $('#text').val();
 
-        axios.get('/api/server.ashx', {
+        axios.get('server.ashx', {
             params: {
                 a: 3,
                 u: this.vName,
@@ -82,7 +82,7 @@ export default {
         
     },
     add2(){ //评论提交
-        axios.get('/api/server.ashx', {
+        axios.get('server.ashx', {
             params: {
                 a: 6,
                 id: $('#id2').val(),
@@ -117,7 +117,7 @@ export default {
   },
   mounted: function(){
 
-      axios.get('/api/server.ashx',{
+      axios.get('server.ashx',{
           params: {
               a: 10
           }

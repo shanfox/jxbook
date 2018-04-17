@@ -15,7 +15,8 @@
                 <span><router-link to="/">返回首页</router-link></span></div>
             <div class="show_nei">
                 <!-- <div><img src="../assets/1.jpg" /></div> -->
-                <div><img :src="'/api/'+lists.bookImg" width="350" height="350" /></div>
+                <!-- <div><img :src="'/api/'+lists.bookImg" width="350" height="350" /></div> -->
+                <div><img :src="lists.bookImg" width="350" height="350" /></div>
                 <table class="show_ul">
                     <tr>
                         <th>书名：</th>
@@ -75,7 +76,7 @@ export default {
     },
     methods: {
         commentList(){
-            axios.get('/api/server.ashx', {
+            axios.get('server.ashx', {
                 params: {
                     a: 7,
                     id: this.lists.ID
@@ -89,7 +90,7 @@ export default {
             });
         },
         getShow(){
-            axios.get('/api/server.ashx', {
+            axios.get('server.ashx', {
                 params: {
                     a: 5,
                     id: this.showId
@@ -110,7 +111,8 @@ export default {
             $('#id2').val(id);
         },
         add2(){ //评论提交
-            axios.get('/api/server.ashx', {
+            $('#appDiv2').hide();
+            axios.get('server.ashx', {
                 params: {
                     a: 6,
                     id: $('#id2').val(),
@@ -121,7 +123,6 @@ export default {
                 if(res.data==0){
                     this.vDate =  new Date().format("yyyy-MM-dd hh:mm:ss");
                     this.vComment = $('#textarea').val();
-                    $('#appDiv2').hide();
                     $('#textarea').val('')
                     alert('评论成功');
                     this.getShow();

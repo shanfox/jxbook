@@ -54,8 +54,8 @@ export default {
     add(){  //借阅提交
         this.vJDate =  new Date().format("yyyy-MM-dd hh:mm:ss");
         this.vName = $('#text').val();
-
-        axios.get('/api/server.ashx', {
+        $('#appDiv1').hide();
+        axios.get('server.ashx', {
             params: {
                 a: 3,
                 u: this.vName,
@@ -66,7 +66,6 @@ export default {
           if(res.data == 0){
             this.vList[$('#index').val()].bookUser = this.vName;
             this.vList[$('#index').val()].bookState = '借出';
-            $('#appDiv1').hide();
             $('#text').val('');
             alert('借阅成功');
           }else if(res.data == 100){
@@ -80,7 +79,7 @@ export default {
         
     },
     add2(){ //评论提交
-        axios.get('/api/server.ashx', {
+        axios.get('server.ashx', {
             params: {
                 a: 6,
                 id: $('#id2').val(),
@@ -115,7 +114,7 @@ export default {
   },
   mounted: function(){
       
-        axios.get('/api/server.ashx',{
+        axios.get('server.ashx',{
             params: {
                 a: 10
             }
@@ -138,6 +137,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  padding-bottom: 50px;
 }
 * { margin: 0; padding:0;}
 a {
