@@ -13,11 +13,11 @@
                 图书类型：
                 <select v-model="bookType">
                     <option value="0">请选择</option>
-                    <option value="综合">综合</option>
-                    <option value="管理">管理</option>
-                    <option value="市场">市场</option>
-                    <option value="美术">美术</option>
-                    <option value="技术">技术</option>
+                    <option value="综合类">综合类</option>
+                    <option value="管理类">管理类</option>
+                    <option value="市场类">市场类</option>
+                    <option value="美术类">美术类</option>
+                    <option value="技术类">技术类</option>
                 </select>
             </div>
             <div>
@@ -42,6 +42,7 @@
                     <th width="170">作者</th>
                     <th width="120">入库时间</th>
                     <th width="80">图书状态</th>
+                    <th width="80" v-show="power">价格</th>
                     <th width="80" v-show="power">编辑</th>
                 </tr>
                 <tr v-for="(list,index) in lists" :key="list.bookID">
@@ -59,6 +60,7 @@
                     <td>{{list.bookAuthor}}</td>
                     <td>{{list.bookAddTime}}</td>
                     <td>{{list.bookUser}}</td>
+                    <td v-show="power">{{list.bookPrice}}</td>
                     <td v-show="power">
                         <span v-if="list.bookState=='在册'"><button @click="dialog(list.ID,index)">借阅</button></span>
                         <span v-else><button @click="reback(list.ID,index)">归还</button></span>
