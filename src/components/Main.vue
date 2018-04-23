@@ -152,11 +152,11 @@ export default {
             this.lists3 = [];
             for(var i=0;i<this.lists.length;i++){
                 if(this.power){
-                    if(this.lists[i].bookName.indexOf(this.bookTxt)!=-1 || this.lists[i].bookUser.indexOf(this.bookTxt)!=-1){
+                    if(this.lists[i].bookName.toUpperCase().indexOf(this.bookTxt.toUpperCase())!=-1 || this.lists[i].bookUser.indexOf(this.bookTxt.toUpperCase())!=-1){
                         this.lists3.push(this.lists[i]);
                     }
                 }else{
-                    if(this.lists[i].bookName.indexOf(this.bookTxt)!=-1 || this.lists[i].bookAuthor.indexOf(this.bookTxt)!=-1){
+                    if(this.lists[i].bookName.toUpperCase().indexOf(this.bookTxt.toUpperCase())!=-1 || this.lists[i].bookAuthor.toUpperCase().indexOf(this.bookTxt.toUpperCase())!=-1){
                         this.lists3.push(this.lists[i]);
                     }
                 }
