@@ -157,7 +157,7 @@ ul,li { padding: 0; margin: 0; list-style: none;}
 .wypl { padding: 5px 20px; position: absolute; bottom: 0; right: 0; cursor: pointer;}
 .show_nei img { width: 380px; float: left;}
 .show_nei .show_ul { width: 680px; float: right;}
-.show_nei .show_ul th { width: 50px; vertical-align: top; padding: 5px 0; line-height: 25px;}
+.show_nei .show_ul th { width: 70px; vertical-align: top; padding: 5px 0; line-height: 25px;}
 .show_nei .show_ul td { vertical-align: top; padding: 5px 0; line-height: 25px;}
 .show_ul li { min-height: 32px; line-height: 32px; clear: both; overflow: hidden;}
 .show_ul li.btns { height: 40px; margin-top: 10px; margin-left: 48px;}

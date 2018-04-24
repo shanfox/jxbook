@@ -9,6 +9,7 @@ import Main from './components/Main'
 import Show from './components/Show'
 import Add from './components/Add'
 import Comment from './components/Comment'
+import $ from 'jquery'
 
 
 Vue.config.productionTip = false
