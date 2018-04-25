@@ -2,6 +2,7 @@
     <div id="show">
         <div id="appDiv2" class="appDiv">
             <div class="tc_box">
+                <h3>评 论</h3>
                 <span class="close" @click="close2">X</span>
                 <textarea id="textarea" placeholder="请输入评论"></textarea>
                 <input type="hidden" name="" id="id2">
@@ -164,11 +165,11 @@ ul,li { padding: 0; margin: 0; list-style: none;}
 .show_ul li.btns button { padding: 4px 20px; font-size: 14px;}
 
 .appDiv { width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,0.6); z-index: 999999; display: none;}
-.tc_box { width: 500px; height: 180px; background: #fff; transform: translate(-50%,-50%); left: 50%; top: 50%; position: absolute; box-sizing: border-box; padding: 25px 10px 15px; text-align: center;}
-.tc_box .close { position: absolute; right: 5px; top: 5px; cursor: pointer;}
+.tc_box { width: 500px; height: 212px; background: #fff; transform: translate(-50%,-50%); left: 50%; top: 50%; position: absolute; box-sizing: border-box; text-align: center;}
+.tc_box .close { position: absolute; right: 8px; top: 7px; cursor: pointer; color: #fff; font-size: 20px;}
 .tc_box textarea { width: 460px; height: 90px; margin: 0 auto; padding: 5px; box-sizing: border-box; line-height: 20px;}
 .tc_box button { padding: 5px 20px; text-align: center; margin-top: 10px; cursor: pointer;}
-.tc_box h3 { text-align: center; margin-bottom: 15px;}
-input[type="text"] { padding: 6px 0;}
+.tc_box h3 { height: 35px; line-height:35px; text-align: center; margin-bottom: 25px; background: #A0BC7C; color: #fff;}
+input[type="text"] { padding: 6px 5px;}
 
 </style>

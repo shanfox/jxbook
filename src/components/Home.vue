@@ -1,29 +1,29 @@
 <template>
-  <div id="home">
-    <div id="appDiv1" class="appDiv">
-        <div class="tc_box">
-            <span class="close" @click="close">X</span>
-            <h3>借阅</h3>
-            <input type="text" name="" id="text" placeholder="请输入借书人名字">
-            <input type="hidden" name="" id="index">
-            <input type="hidden" name="" id="id">
-            
-            <button @click="add">提交</button>
+    <div id="home">
+        <div id="goTopBtn"></div>
+        <div id="appDiv1" class="appDiv">
+            <div class="tc_box">
+                <span class="close" @click="close">X</span>
+                <h3>借 阅</h3>
+                <p><input type="text" name="" id="text" placeholder="请输入借书人名字"></p>
+                <input type="hidden" name="" id="index">
+                <input type="hidden" name="" id="id">
+                <p><button @click="add">提交</button></p>
+            </div>
         </div>
-    </div>
-    <div id="appDiv2" class="appDiv">
-        <div class="tc_box">
-            <span class="close" @click="close2">X</span>
-            <textarea cols="60" rows="4" id="textarea" placeholder="请输入评论"></textarea>
-            <input type="hidden" name="" id="id2">
-            <button @click="add2">提交</button>
+        <div id="appDiv2" class="appDiv">
+            <div class="tc_box">
+                <span class="close" @click="close2">X</span>
+                <textarea cols="60" rows="4" id="textarea" placeholder="请输入评论"></textarea>
+                <input type="hidden" name="" id="id2">
+                <button @click="add2">提交</button>
+            </div>
         </div>
+        <app-header />
+        <Banner />
+        <!-- <router-view :inputValue="vName" :inputDate="vJDate" :power="power" @upup="change" :comments="comments" :vComment="vComment" :vDate="vDate"></router-view> -->
+        <app-main :inputValue="vName" :inputDate="vJDate" :power="power" @upup="change" :comments="comments" :vComment="vComment" :vDate="vDate"></app-main>
     </div>
-    <app-header />
-    <Banner />
-    <!-- <router-view :inputValue="vName" :inputDate="vJDate" :power="power" @upup="change" :comments="comments" :vComment="vComment" :vDate="vDate"></router-view> -->
-    <app-main :inputValue="vName" :inputDate="vJDate" :power="power" @upup="change" :comments="comments" :vComment="vComment" :vDate="vDate"></app-main>
-  </div>
 </template>
 
 <script>
@@ -125,6 +125,21 @@ export default {
             //     this.$router.push({path:'/admin'});  //前端页面
             // }
         });
+
+        $(window).scroll(function(){
+            var sc=$(window).scrollTop();
+            var rwidth=$(window).width()
+            if(sc>0){
+                $("#goTopBtn").css("display","block");
+                $("#goTopBtn").css("left",(rwidth-100)+"px")
+            }else{
+                $("#goTopBtn").css("display","none");
+            }
+        })
+        $("#goTopBtn").click(function(){
+            var sc=$(window).scrollTop();
+            $('body,html').animate({scrollTop:0},500);
+        })
       
       
     }
@@ -132,6 +147,16 @@ export default {
 </script>
 
 <style>
+#goTopBtn {
+    position: fixed;
+    line-height: 36px;
+    width: 36px;
+    bottom: 300px;
+    height: 36px;
+    cursor: pointer;
+    display: none;
+    background: url(../assets/top.gif);
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -145,12 +170,13 @@ a {
 }
 
 .appDiv { width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,0.6); z-index: 999999; display: none;}
-.tc_box { width: 500px; height: 180px; background: #fff; transform: translate(-50%,-50%); left: 50%; top: 50%; position: absolute; box-sizing: border-box; padding: 25px 10px 15px; text-align: center;}
-.tc_box .close { position: absolute; right: 5px; top: 5px; cursor: pointer;}
+.tc_box { width: 500px; height: 180px; background: #fff; transform: translate(-50%,-50%); left: 50%; top: 50%; position: absolute; box-sizing: border-box; text-align: center;}
+.tc_box .close { position: absolute; right: 8px; top: 7px; cursor: pointer; font-size: 20px; color: #fff;}
 .tc_box textarea { padding: 5px; box-sizing: border-box; line-height: 20px;}
 .tc_box button { padding: 5px 20px; text-align: center; margin-top: 10px; cursor: pointer;}
-.tc_box h3 { text-align: center; margin-bottom: 15px;}
-input[type="text"] { padding: 6px 0;}
+.tc_box h3 { height: 35px; line-height:35px; text-align: center; margin-bottom: 25px; background: #A0BC7C; color: #fff;}
+.tc_box p { margin-bottom: 8px; text-align: center;}
+input[type="text"] { padding: 6px 5px;}
 
 
 </style>
