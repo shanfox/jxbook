@@ -4,15 +4,16 @@
             <div>
                 图书状态：
                 <select v-model="bookState">
-                    <option value="0">请选择</option>
+                    <option value="0">全部</option>
                     <option value="在册">在册</option>
                     <option value="借出">借出</option>
                 </select>
+                &nbsp;&nbsp;
             </div>
             <div>
                 图书类型：
                 <select v-model="bookType">
-                    <option value="0">请选择</option>
+                    <option value="0">全部</option>
                     <option value="综合类">综合类</option>
                     <option value="管理类">管理类</option>
                     <option value="市场类">市场类</option>
@@ -212,7 +213,7 @@ export default {
 .adminnav { margin: 0 auto 15px;}
 button { padding: 4px 15px;}
 .main { width: 1100px; margin: 0 auto;}
-.search-box { width: 660px; display: flex; align-items:center; margin: 25px auto; text-align: center; font-weight: 600;}
+.search-box { width: 680px; display: flex; align-items:center; margin: 25px auto; text-align: center; font-weight: 600;}
 .search-box div { margin-right: 10px;}
 select { padding: 4px 5px;}
 input[type="text"] { padding: 3px 5px; width: 200px;}

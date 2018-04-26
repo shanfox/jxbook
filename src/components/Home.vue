@@ -151,7 +151,7 @@ export default {
     position: fixed;
     line-height: 36px;
     width: 36px;
-    bottom: 300px;
+    bottom: 200px;
     height: 36px;
     cursor: pointer;
     display: none;
